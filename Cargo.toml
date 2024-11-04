@@ -15,6 +15,7 @@ prost-build = "0.13" # Or latest version
 tonic = "0.12"
 tonic-build = "0.12"
 solana-sdk = "1.18"
+log = "0.4"
 [dev-dependencies]
 
 
