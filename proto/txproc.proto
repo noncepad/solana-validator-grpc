@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package txproc;
+
+service TransactionProcessing {
+  rpc Blockhash(Empty) returns (BlockhashResponse) {}
+  rpc RentExemption(RentRequest) returns (RentResponse) {}
+  rpc Send(SendRequest) returns (TransactionResult) {}
+}
+
+message Empty {}
+
+message BlockhashResponse { bytes hash = 1; }
+
+message RentRequest { uint64 size = 1; }
+
+message RentResponse { uint64 lamports = 2; }
+
+message SendRequest {
+  bytes transaction = 1;
+  bool simulate = 2;
+  Status status = 3;
+}
+
+enum Status {
+  PROCESSED = 0;
+  CONFIRMED = 1;
+  ROOTED = 2;
+}
+
+message TransactionResult {
+  uint64 slot = 1;
+  Status status = 2;
+}

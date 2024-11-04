@@ -1,0 +1,22 @@
+[package]
+name = "solana-tx-processor"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["dylib"]
+
+[dependencies]
+tokio = "1.41"
+tokio-stream = "0.1"
+prost = "0.13"
+prost-build = "0.13" # Or latest version
+tonic = "0.12"
+tonic-build = "0.12"
+solana-sdk = "1.18"
+[dev-dependencies]
+
+
+[build-dependencies]
+tonic-build = "0.12"
